@@ -16,7 +16,7 @@ function App() {
           <ModalProvider>
             <DataProvider>
               <Routes>
-                <Route path="*" element={<LoginPage />} />
+                <Route path="login" element={<LoginPage />} />
                 <Route path="home" element={<HomePage />} />
                 <Route path="pending" element={<PendingPage />} />
               </Routes>
