@@ -1,0 +1,168 @@
+//modal
+.search-modal-container {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+}
+.search-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 868px;
+  height: 750px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0px 0px 800px 800px #11111180;
+}
+//header
+.search-modal {
+  .header {
+    width: 100%;
+    height: 42px;
+    margin: 10px 0;
+    border-bottom: 1px solid #ebebeb;
+    p {
+      font-family: Noto Sans TC;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 42px;
+      margin: 0 30px;
+    }
+    .close {
+      cursor: pointer;
+    }
+  }
+  .search-input-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button {
+      cursor: pointer;
+      border-style: none;
+      background: #f5f5f5;
+      border-radius: 20px 0 0 20px;
+      img {
+        margin: 0 15px;
+      }
+    }
+    .search-input {
+      width: 780px;
+      height: 54px;
+      background: #f5f5f5;
+      font-style: Noto Sans Tc;
+      font-size: 18px;
+      font-weight: 400;
+      border: 1px solid #f5f5f5;
+      border-radius: 0 20px 20px 0;
+      outline: none;
+    }
+  }
+}
+
+//content,item
+.search-modal {
+  p {
+    font-family: Noto Sans TC;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 42px;
+    margin: 0 30px;
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    height: 500px;
+    overflow: scroll;
+    box-shadow: inset 0px -30px 36px 0px rgba(0, 0, 0, 0.1);
+    .podcast-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0 20px 20px;
+      width: 182px;
+      height: 230px;
+      cursor: pointer;
+      &:hover {
+        border: 2px #ff7f50 solid;
+      }
+      img {
+        width: 149px;
+        height: 143px;
+        border-radius: 10px;
+        margin: 10px auto;
+      }
+      .name {
+        width: 134px;
+        height: 20px;
+        font-family: Noto Sans TC;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #141416;
+        overflow: hidden; /* 隱藏超出範圍的內容 */
+        white-space: nowrap; /* 不換行 */
+        text-overflow: ellipsis; /* 當文字超出範圍時顯示省略符號 */
+      }
+      .description {
+        width: 134px;
+        height: 37px;
+        font-family: Noto Sans TC;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 17px;
+        color: #93989a;
+        overflow: hidden; /* 隱藏超出範圍的內容 */
+        // white-space: nowrap; /* 不換行 */
+        text-overflow: ellipsis; /* 當文字超出範圍時顯示省略符號 */
+      }
+    }
+  }
+}
+
+//footer
+.search-modal {
+  .footer {
+    width: 100%;
+    height: 83px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    button {
+      cursor: pointer;
+      width: 191px;
+      height: 44px;
+      border-radius: 8px;
+      font-family: Noto Sans TC;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 23px;
+      padding: 21px, 328px, 21px, 328px;
+    }
+    .close {
+      border-style: none;
+    }
+    .add {
+      border-style: none;
+      background-color: #ff7f50;
+      color: #ffffff;
+      margin-right: 15px;
+    }
+  }
+}
+
+.showModal {
+  display: block;
+}
+
+.isActived {
+  background-color: #9191913a;
+}

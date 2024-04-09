@@ -1,0 +1,217 @@
+//modal wrapper
+.modal-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  backdrop-filter: blur(5px); //模糊效果
+  .podcast-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 868px;
+    height: 750px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    // z-index: 1;
+    box-shadow: 0px 0px 800px 800px #1111110b;
+    .header {
+      position: fixed;
+      z-index: 999;
+      width: 868px;
+      height: 144px;
+      border-bottom: 1px solid #ebebeb;
+      .imgcontent {
+        width: 127px;
+        height: 127px;
+        margin: auto;
+        img {
+          border-radius: 10px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .podcast-info {
+        width: 721px;
+        height: 100%;
+        .title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 10px;
+          p {
+            font-family: Noto Sans TC;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 26px;
+            letter-spacing: 0em;
+            text-align: left;
+            margin: 0 10px;
+          }
+          .close {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            line-height: 24px;
+            text-align: center;
+            cursor: pointer;
+          }
+        }
+        .content {
+          margin: 0 10px;
+          p {
+            margin: 0;
+            font-family: Noto Sans TC;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 17px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #93989a;
+            overflow: hidden; /* 隐藏溢出的内容 */
+            text-overflow: ellipsis; /* 使用省略号表示溢出的文本 */
+            + p {
+              width: 687px;
+              height: 51px;
+              color: #718096;
+              font-family: Noto Sans TC;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 17px;
+              letter-spacing: 0px;
+              text-align: left;
+              overflow: hidden; /* 隐藏溢出的内容 */
+              text-overflow: ellipsis; /* 使用省略号表示溢出的文本 */
+            }
+          }
+          .btn-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            width: 98%;
+            .delete-btn {
+              width: 40px;
+              height: 25px;
+              padding: 4px, 8px, 4px, 8px;
+              border-radius: 4px;
+              border: 1px solid #ff5050;
+              gap: 4px;
+              color: #ff5050;
+              background-color: #fff;
+              font-family: Noto Sans TC;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 17px;
+              letter-spacing: 0px;
+              text-align: left;
+              cursor: pointer;
+              &:hover {
+                background-color: #ff5050;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//modal內容
+.podcast-modal {
+  .modal-content {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 144px;
+    width: 100%;
+    height: 606px;
+    .podcast {
+      display: flex;
+      width: 801px;
+      height: 151px;
+      padding: 16px;
+      margin-top: 16px;
+      border-radius: 16px;
+      gap: 16px;
+      border: 1px solid #edf2f7;
+      .podcast-image {
+        img {
+          width: 96px;
+          height: 96px;
+          border-radius: 8px;
+        }
+      }
+      .podcast-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 801px;
+        section {
+          display: flex;
+          justify-content: space-between;
+          .title {
+            margin: 0;
+          }
+          img {
+            cursor: pointer;
+          }
+        }
+        .info {
+          width: 687px;
+          height: 100%;
+          margin: 5px 0;
+          font-family: Noto Sans TC;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+          letter-spacing: 0px;
+          text-align: left;
+          color: #718096;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; /* 限定行數 */
+          overflow: hidden; /*多的字隱藏起來 */
+        }
+      }
+    }
+    .btn-wrapper {
+      margin-top: 20px;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+      .date {
+        margin: auto 10px;
+        font-family: Noto Sans TC;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0px;
+        color: #93989a;
+      }
+      .duration {
+        margin: auto 10px;
+        font-family: Noto Sans TC;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0px;
+        color: #93989a;
+      }
+    }
+  }
+}
+
+.show-podcast-modal {
+  display: block;
+}

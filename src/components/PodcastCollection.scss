@@ -1,0 +1,142 @@
+.collection {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  // border: 1px blue solid;
+}
+
+.collection-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  width: 65%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.music-listener {
+  display: flex;
+  justify-content: end;
+  width: 35%;
+  .listener-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 312px;
+    height: 556px;
+    margin-right: 100px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 16px 16px 40px 0px #c7c7c73d;
+    .listener-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 67px;
+      width: 248px;
+      border-bottom: 1px solid #e2e8f0;
+      p {
+        width: 96px;
+        height: 35px;
+        margin: 0;
+        font-family: Noto Sans TC;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 35px;
+        letter-spacing: 0px;
+        text-align: left;
+      }
+      .favorite {
+        width: 24px;
+        height: 24px;
+        margin-top: 8px;
+        img {
+          width: 14px;
+          height: 18px;
+        }
+      }
+    }
+    .listener-content {
+      display: flex;
+      flex-direction: column;
+      p {
+        width: 248px;
+        height: 64px;
+        font-family: Noto Sans TC;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0px;
+        text-align: left;
+      }
+      .music-player {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 248px;
+        height: 352px;
+        border-radius: 16px;
+        background-color: #91b4c1;
+        img {
+          margin: 0 auto;
+          width: 184px;
+          height: 184px;
+        }
+        iframe {
+          margin: auto 0;
+        }
+      }
+    }
+  }
+}
+
+//背景
+.collection-background {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+  width: 100%;
+  .collection-bg-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 182px;
+    .folder-img {
+      width: 56px;
+      height: 56px;
+      opacity: 70%;
+    }
+    p {
+      margin: 0;
+      font-family: Noto Sans TC;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 26px;
+      letter-spacing: 0px;
+      text-align: center;
+      color: #718096;
+      cursor: default;
+    }
+    .create-podcast-btn {
+      width: 191px;
+      height: 44px;
+      top: 242px;
+      left: 569px;
+      padding: 21px, 328px, 21px, 328px;
+      border-radius: 8px;
+      border: 0;
+      gap: 10px;
+      background: #ff7f50;
+      color: #ffffff;
+      font-family: Noto Sans TC;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 23px;
+      cursor: pointer;
+    }
+  }
+}
