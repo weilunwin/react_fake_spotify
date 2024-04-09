@@ -7,16 +7,16 @@ import { AuthProvider } from "./contexts/AuthContext.jsx";
 import { ModalProvider } from "./contexts/ModalContext.jsx";
 import { DataProvider } from "./contexts/DataContext.jsx";
 
-const basename = process.env.PUBLIC_URL;
+// const basename = process.env.PUBLIC_URL;
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename={basename}>
+      <BrowserRouter>
         <AuthProvider>
           <ModalProvider>
             <DataProvider>
               <Routes>
-                <Route path="login" element={<LoginPage />} />
+                <Route path="*" element={<LoginPage />} />
                 <Route path="home" element={<HomePage />} />
                 <Route path="pending" element={<PendingPage />} />
               </Routes>
