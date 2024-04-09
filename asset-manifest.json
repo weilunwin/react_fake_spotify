@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react_fake_spotify/static/css/main.437a84aa.css",
-    "main.js": "/react_fake_spotify/static/js/main.7313ec8f.js",
+    "main.js": "/react_fake_spotify/static/js/main.c43beb2f.js",
     "static/js/592.115ebe91.chunk.js": "/react_fake_spotify/static/js/592.115ebe91.chunk.js",
     "static/media/CarouselImage1.svg": "/react_fake_spotify/static/media/CarouselImage1.2159ecdf5143f290f0a1ca7fbce3a432.svg",
     "static/media/CarouselImage3.svg": "/react_fake_spotify/static/media/CarouselImage3.513be12b76228401d728ad66362943d9.svg",
@@ -18,11 +18,11 @@
     "static/media/Favorite.svg": "/react_fake_spotify/static/media/Favorite.df7fb3fa11cb838619fa29b79c84d44c.svg",
     "static/media/LoginPageBackground.svg": "/react_fake_spotify/static/media/LoginPageBackground.ec18095768efd3c06f34.svg",
     "main.437a84aa.css.map": "/react_fake_spotify/static/css/main.437a84aa.css.map",
-    "main.7313ec8f.js.map": "/react_fake_spotify/static/js/main.7313ec8f.js.map",
+    "main.c43beb2f.js.map": "/react_fake_spotify/static/js/main.c43beb2f.js.map",
     "592.115ebe91.chunk.js.map": "/react_fake_spotify/static/js/592.115ebe91.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.437a84aa.css",
-    "static/js/main.7313ec8f.js"
+    "static/js/main.c43beb2f.js"
   ]
 }
