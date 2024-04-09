@@ -11,7 +11,7 @@ const basename = process.env.PUBLIC_URL;
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="basename">
+      <BrowserRouter basename={basename}>
         <AuthProvider>
           <ModalProvider>
             <DataProvider>
