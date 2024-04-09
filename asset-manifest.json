@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react_fake_spotify/static/css/main.437a84aa.css",
+    "main.js": "/react_fake_spotify/static/js/main.c43beb2f.js",
+    "static/js/592.115ebe91.chunk.js": "/react_fake_spotify/static/js/592.115ebe91.chunk.js",
+    "static/media/CarouselImage1.svg": "/react_fake_spotify/static/media/CarouselImage1.2159ecdf5143f290f0a1ca7fbce3a432.svg",
+    "static/media/CarouselImage3.svg": "/react_fake_spotify/static/media/CarouselImage3.513be12b76228401d728ad66362943d9.svg",
+    "static/media/CarouselImage2.svg": "/react_fake_spotify/static/media/CarouselImage2.95e6a9ed55b6fcee7412dbb62e9e001e.svg",
+    "static/media/FakeImage.svg": "/react_fake_spotify/static/media/FakeImage.71fcca4bac8fc0248dc95fde32528857.svg",
+    "static/media/FakePlayerImage.svg": "/react_fake_spotify/static/media/FakePlayerImage.97c6050b4c0809f44ea8ce36b16b72db.svg",
+    "static/media/folder.svg": "/react_fake_spotify/static/media/folder.c18cacf1be77f4baf91c85959aedb6e7.svg",
+    "static/media/BackgroundImage.svg": "/react_fake_spotify/static/media/BackgroundImage.4134d135df686e759043.svg",
+    "static/media/Logo.svg": "/react_fake_spotify/static/media/Logo.139ac81b30bc477415b423a5ebe372e7.svg",
+    "index.html": "/react_fake_spotify/index.html",
+    "static/media/Search.svg": "/react_fake_spotify/static/media/Search.42c521e3bcb1153e697031f82a2b801f.svg",
+    "static/media/Play.svg": "/react_fake_spotify/static/media/Play.228a0b15c72edd0fa4c291324fa58c2b.svg",
+    "static/media/unFavorite.svg": "/react_fake_spotify/static/media/unFavorite.bfa2c058297002cbc3570367d651f693.svg",
+    "static/media/Favorite.svg": "/react_fake_spotify/static/media/Favorite.df7fb3fa11cb838619fa29b79c84d44c.svg",
+    "static/media/LoginPageBackground.svg": "/react_fake_spotify/static/media/LoginPageBackground.ec18095768efd3c06f34.svg",
+    "main.437a84aa.css.map": "/react_fake_spotify/static/css/main.437a84aa.css.map",
+    "main.c43beb2f.js.map": "/react_fake_spotify/static/js/main.c43beb2f.js.map",
+    "592.115ebe91.chunk.js.map": "/react_fake_spotify/static/js/592.115ebe91.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.437a84aa.css",
+    "static/js/main.c43beb2f.js"
+  ]
+}
