@@ -85,7 +85,7 @@ export const searchShows = async (input) => {
   const spotifyToken = localStorage.getItem("spotifyToken");
   try {
     const res = await axios.get(`${BASE_URL}/search`, {
-      params: { q: input, type: "show", limit: 15 },
+      params: { q: input, type: "show", limit: 20 },
       headers: { Authorization: `Bearer ${spotifyToken}` },
     });
     console.log("search Shows success");
