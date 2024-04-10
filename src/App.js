@@ -1,6 +1,6 @@
 import "./App.scss";
-import { LoginPage } from "./pages/LoginPage";
-import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage.jsx";
+import { HomePage } from "./pages/HomePage.jsx";
 import { PendingPage } from "./pages/PendingPage.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext.jsx";

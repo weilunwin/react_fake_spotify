@@ -13,10 +13,12 @@ import { useAuth } from "../contexts/AuthContext";
 export const LoginPage = () => {
   const navigate = useNavigate();
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-  const REDIRECT_URL = process.env.REACT_APP_REDIRECT_URL;
+  const REDIRECT_URL = "https://react-fake-spotify-flame.vercel.app/pending";
   const SCOPE = "user-read-private user-read-email";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-
+  // "http://localhost:3000/pending";
+  // "https://react-fake-spotify-flame.vercel.app/pending"
+  // process.env.REACT_APP_REDIRECT_URL;
   const generateRandomString = (length) => {
     let result = "";
     const characters =
