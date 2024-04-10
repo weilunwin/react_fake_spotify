@@ -16,6 +16,12 @@ export const PendingPage = () => {
   const { getUsers } = useAuth();
 
   useEffect(() => {
+    const tokenUrl = new URL(window.location.href);
+    const params = new URLSearchParams(tokenUrl.search);
+    const code = params.get("code");
+    if (code) {
+      localStorage.setItem("code", code);
+    }
     let ignore = false;
     async function fetchToken() {
       if (!cache.current) {
@@ -31,24 +37,6 @@ export const PendingPage = () => {
     return () => {
       ignore = true;
     };
-    // const code = localStorage.getItem("code");
-    //   const fetchToken = async (code) => {
-    //     try {
-    //       const spotifyToken = await getSpotifyAccessToken(code);
-    //       if (spotifyToken) {
-    //         await getUsers(spotifyToken);
-    //         setTimeout(() => {
-    //           navigate("/home");
-    //         }, 1200);
-    //       }
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
-    //   fetchToken(code);
-    //   return () => {
-    //     cleanup();
-    //   };
   }, []);
 
   return (
