@@ -10,7 +10,7 @@
 下載檔案至本地資料夾
 
 ```
-git clone https://github.com/fishiryoma/ALPHAcast
+git clone https://github.com/weilunwin/react_fake_spotify.git
 ```
 
 開啟專案資料夾後安裝檔案
