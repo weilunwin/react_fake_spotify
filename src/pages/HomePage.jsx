@@ -170,6 +170,8 @@ export const HomePage = () => {
     setRenderFavorite(true);
   };
 
+
+
   return (
     <div className="container">
       <div className="list-panel">
