@@ -5,3 +5,28 @@
 ![Alt text](public/demo02.png)
 ![Alt text](public/demo03.png)
 
+## 安裝與下載
+
+下載檔案至本地資料夾
+
+```
+git clone https://github.com/fishiryoma/ALPHAcast
+```
+
+開啟專案資料夾後安裝檔案
+
+```
+npm install
+```
+
+輸入執行碼
+
+```
+npm run dev
+```
+
+於瀏覽器輸入以下網址
+
+```
+http://127.0.0.1:3000/
+```
