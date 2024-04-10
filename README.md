@@ -28,5 +28,5 @@ npm run dev
 於瀏覽器輸入以下網址
 
 ```
-http://127.0.0.1:3000/
+http://localhost:3000/login
 ```
