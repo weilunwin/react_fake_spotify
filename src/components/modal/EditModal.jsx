@@ -116,6 +116,7 @@ export const EditModal = ({ onChangeName, inputValue, setInputValue }) => {
   };
   const handleEmojiSelect = (emoji) => {
     setChosenEmoji(emoji);
+    setOpen(false)
     setInputValue(emoji.emoji + inputValue);
   };
 
