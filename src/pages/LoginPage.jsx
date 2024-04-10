@@ -56,44 +56,44 @@ export const LoginPage = () => {
   //   }
   // }, [navigate]);
 
-  useEffect(() => {
-    const tokenUrl = new URL(window.location.href);
-    const params = new URLSearchParams(tokenUrl.search);
-    const code = params.get("code");
+  // useEffect(() => {
+  //   const tokenUrl = new URL(window.location.href);
+  //   const params = new URLSearchParams(tokenUrl.search);
+  //   const code = params.get("code");
 
-    if (code) {
-      localStorage.setItem("code", code);
-      navigate("/pending");
-    }
+  // if (code) {
+  //   localStorage.setItem("code", code);
+  //   navigate("/pending");
+  // }
 
-    // const url = "http://localhost:3000/login";
-    // if (window.location.href !== url) {
-    //   const tokenUrl = new URL(window.location.href);
-    //   const params = new URLSearchParams(tokenUrl.search);
-    //   const code = params.get("code");
-    //   if (code) {
-    //     const fetch = async () => {
-    //       const spotifyToken = await getSpotifyAccessToken(code);
-    //       console.log(spotifyToken);
-    //       if (spotifyToken) {
-    //         console.log("1");
-    //         navigate("/pending");
-    //       }
-    //     };
-    //     fetch(code);
-    //   }
-    // }
-    // const href = window.location.href;
-    // const startIndex = href.indexOf("=") + 1;
-    // const lastIndex = href.indexOf("&");
-    // const code = href.slice(startIndex, lastIndex);
-    // getSpotifyAccessToken(code).then((res) => {
-    //   const spotifyToken = res;
-    //   if (spotifyToken) {
-    //     navigate("/pending");
-    //   }
-    // });
-  },[]);
+  // const url = "http://localhost:3000/login";
+  // if (window.location.href !== url) {
+  //   const tokenUrl = new URL(window.location.href);
+  //   const params = new URLSearchParams(tokenUrl.search);
+  //   const code = params.get("code");
+  //   if (code) {
+  //     const fetch = async () => {
+  //       const spotifyToken = await getSpotifyAccessToken(code);
+  //       console.log(spotifyToken);
+  //       if (spotifyToken) {
+  //         console.log("1");
+  //         navigate("/pending");
+  //       }
+  //     };
+  //     fetch(code);
+  //   }
+  // }
+  // const href = window.location.href;
+  // const startIndex = href.indexOf("=") + 1;
+  // const lastIndex = href.indexOf("&");
+  // const code = href.slice(startIndex, lastIndex);
+  // getSpotifyAccessToken(code).then((res) => {
+  //   const spotifyToken = res;
+  //   if (spotifyToken) {
+  //     navigate("/pending");
+  //   }
+  // });
+  // },[]);
 
   const handleLogin = () => {
     window.location = spotifyLoginUrl;
