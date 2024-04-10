@@ -47,6 +47,7 @@ export const SearchModal = () => {
     setSearchInput("");
     setShowSearchModal(false);
     setShowsTargetId([]);
+    setSearchShowsData([]);
   };
 
   const handleSearchInput = (e) => {
@@ -64,6 +65,14 @@ export const SearchModal = () => {
     setShowsTargetId(id);
   };
 
+  const handleKeyDown = async (e) => {
+    console.log(e.key);
+    if (searchInput.length === 0) return;
+    const res = await searchShows(searchInput);
+    const showData = res.shows.items;
+    setSearchShowsData(showData);
+  };
+
   const handelAddInCategory = async () => {
     if (showsTargetId.length === 0) return;
     try {
@@ -77,21 +86,9 @@ export const SearchModal = () => {
               ...categorie,
               isActive: categorie.id === targetItem.id,
               isChecked: false,
-              text: "O",
             };
           })
         );
-
-        // const showsDataIds = targetItem.savedShows.map((item) => {
-        //   return item.id;
-        // });
-        // const showsData = await Promise.all(
-        //   showsDataIds.map(async (item) => {
-        //     const res = await getShows(item);
-        //     return res;
-        //   })
-        // );
-        // setShows(showsData);
         setSearchInput("");
         setSearchShowsData([]);
         setShowSearchModal(false);
@@ -118,7 +115,6 @@ export const SearchModal = () => {
     }
   };
 
-
   return (
     <div
       className={clsx("search-modal-container", { showModal: showSearchModal })}
@@ -140,6 +136,11 @@ export const SearchModal = () => {
             placeholder="開始搜尋..."
             value={searchInput}
             onChange={handleSearchInput}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleKeyDown(e);
+              }
+            }}
             className="search-input"
           />
         </div>
