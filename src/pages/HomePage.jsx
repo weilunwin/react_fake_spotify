@@ -60,7 +60,7 @@ export const HomePage = () => {
         setSpotifyUser(spotifyUserRes);
       }
       const acUserRes = await getAcUser();
-      if (acUser) {
+      if (acUserRes) {
         setAcUser(acUserRes);
       }
       const categoriesData = await getAcCategories();
@@ -89,7 +89,6 @@ export const HomePage = () => {
       });
     }
   }, [acUser, renderFavorite]);
-
 
   const spotifyImage =
     spotifyUser && spotifyUser.images && spotifyUser.images.length > 0
@@ -169,8 +168,6 @@ export const HomePage = () => {
   const handleFavorite = (e) => {
     setRenderFavorite(true);
   };
-
-
 
   return (
     <div className="container">
