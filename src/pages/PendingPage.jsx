@@ -16,12 +16,12 @@ export const PendingPage = () => {
   const { getUsers } = useAuth();
 
   useEffect(() => {
-    // const tokenUrl = new URL(window.location.href);
-    // const params = new URLSearchParams(tokenUrl.search);
-    // const code = params.get("code");
-    // if (code) {
-    //   localStorage.setItem("code", code);
-    // }
+    const tokenUrl = new URL(window.location.href);
+    const params = new URLSearchParams(tokenUrl.search);
+    const code = params.get("code");
+    if (code) {
+      localStorage.setItem("code", code);
+    }
     let ignore = false;
     async function fetchToken() {
       if (!cache.current) {

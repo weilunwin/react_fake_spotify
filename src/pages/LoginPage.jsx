@@ -13,11 +13,13 @@ import { useAuth } from "../contexts/AuthContext";
 export const LoginPage = () => {
   const navigate = useNavigate();
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-  const REDIRECT_URL = "https://react-fake-spotify-beta.vercel.app/login";
+  const REDIRECT_URL = "https://react-fake-spotify-beta.vercel.app/pending";
   const SCOPE = "user-read-private user-read-email";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-  // "http://localhost:3000/pending";
+  // http://localhost:3000/pending;
+  // "https://react-fake-spotify-beta.vercel.app/login"
   // process.env.REACT_APP_REDIRECT_URL;
+  // "https://react-fake-spotify-beta.vercel.app/pending";
   const generateRandomString = (length) => {
     let result = "";
     const characters =
@@ -57,44 +59,44 @@ export const LoginPage = () => {
   //   }
   // }, [navigate]);
 
-  useEffect(() => {
-    const tokenUrl = new URL(window.location.href);
-    const params = new URLSearchParams(tokenUrl.search);
-    const code = params.get("code");
+  // useEffect(() => {
+  //   const tokenUrl = new URL(window.location.href);
+  //   const params = new URLSearchParams(tokenUrl.search);
+  //   const code = params.get("code");
 
-    if (code) {
-      localStorage.setItem("code", code);
-      navigate("/pending");
-    }
+  //   if (code) {
+  //     localStorage.setItem("code", code);
+  //     navigate("/pending");
+  //   }
 
-    // const url = "http://localhost:3000/login";
-    // if (window.location.href !== url) {
-    //   const tokenUrl = new URL(window.location.href);
-    //   const params = new URLSearchParams(tokenUrl.search);
-    //   const code = params.get("code");
-    //   if (code) {
-    //     const fetch = async () => {
-    //       const spotifyToken = await getSpotifyAccessToken(code);
-    //       console.log(spotifyToken);
-    //       if (spotifyToken) {
-    //         console.log("1");
-    //         navigate("/pending");
-    //       }
-    //     };
-    //     fetch(code);
-    //   }
-    // }
-    // const href = window.location.href;
-    // const startIndex = href.indexOf("=") + 1;
-    // const lastIndex = href.indexOf("&");
-    // const code = href.slice(startIndex, lastIndex);
-    // getSpotifyAccessToken(code).then((res) => {
-    //   const spotifyToken = res;
-    //   if (spotifyToken) {
-    //     navigate("/pending");
-    //   }
-    // });
-  }, []);
+  // const url = "http://localhost:3000/login";
+  // if (window.location.href !== url) {
+  //   const tokenUrl = new URL(window.location.href);
+  //   const params = new URLSearchParams(tokenUrl.search);
+  //   const code = params.get("code");
+  //   if (code) {
+  //     const fetch = async () => {
+  //       const spotifyToken = await getSpotifyAccessToken(code);
+  //       console.log(spotifyToken);
+  //       if (spotifyToken) {
+  //         console.log("1");
+  //         navigate("/pending");
+  //       }
+  //     };
+  //     fetch(code);
+  //   }
+  // }
+  // const href = window.location.href;
+  // const startIndex = href.indexOf("=") + 1;
+  // const lastIndex = href.indexOf("&");
+  // const code = href.slice(startIndex, lastIndex);
+  // getSpotifyAccessToken(code).then((res) => {
+  //   const spotifyToken = res;
+  //   if (spotifyToken) {
+  //     navigate("/pending");
+  //   }
+  // });
+  // }, []);
 
   const handleLogin = () => {
     window.location = spotifyLoginUrl;
@@ -133,74 +135,3 @@ export const LoginPage = () => {
     </div>
   );
 };
-
-// const clientId = process.env.REACT_APP_CLIENT_ID"; // Spotify Client id
-
-// const redirectUri = process.env.REACT_APP_REDIRECT_URL; // Adjust the redirect URI
-
-// const scope = "user-read-private user-read-email"; // Adjust scope based on your needs
-// // Generate a random state for security
-
-// const generateRandomString = (length) => {
-//   let result = "";
-//   const characters =
-//     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//   const charactersLength = characters.length;
-//   for (let i = 0; i < length; i++) {
-//     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-//   }
-//   return result;
-// };
-
-// const state = generateRandomString(10);
-
-// useEffect(() => {
-//   const href = window.location.href;
-//   console.log(href);
-//   const params = new URLSearchParams(href.split("?")[1]);
-//   const code = params.get("code");
-//   const state = params.get("state");
-
-//   const exchangeCodeForToken = async (code) => {
-//     const clientId = process.env.REACT_APP_CLIENT_ID";
-//     const clientSecret = process.env.REACT_APP_CLIENT_SECRET";
-//     const redirectUri = process.env.REACT_APP_REDIRECT_URL; // 與之前相同的重定向 URI
-//     const tokenEndpoint = "https://accounts.spotify.com/api/token";
-
-//     try {
-//       const response = await axios.post(
-//         tokenEndpoint,
-//         new URLSearchParams({
-//           grant_type: "authorization_code",
-//           code: code,
-//           redirect_uri: redirectUri,
-//         }),
-//         {
-//           headers: {
-//             "Content-Type": "application/x-www-form-urlencoded",
-//             Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
-//           },
-//         }
-//       );
-//       const accessToken = response.data.access_token;
-//       const refreshToken = response.data.refresh_token;
-//       localStorage.setItem("accessToken:", accessToken);
-//       localStorage.setItem("refreshToken:", refreshToken);
-//       console.log("accessToken:", accessToken);
-//       console.log("refreshToken:", refreshToken);
-
-//       // 在這裡，你可以將 accessToken 和 refreshToken 存儲在你的應用程式中，以供後續使用
-//     } catch (error) {
-//       console.error("Error exchanging code for token", error.res);
-//     }
-//   };
-//   if (code) {
-//     exchangeCodeForToken(code);
-//   }
-// }, []);
-
-// const handleLogin = () => {
-//   const spotifyLoginUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&state=${state}`;
-//   window.location = spotifyLoginUrl;
-//   console.log(window.location);
-// };
