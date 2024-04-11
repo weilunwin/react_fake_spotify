@@ -4,9 +4,10 @@ const BASE_URL = "https://api.spotify.com/v1";
 
 //get spotify access token
 export const getSpotifyAccessToken = async () => {
+  console.log("success");
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
-  const REDIRECT_URL = process.env.REACT_APP_REDIRECT_URL;
+  const REDIRECT_URL = "https://react-fake-spotify-beta.vercel.app/pending";
   const code = localStorage.getItem("code");
   const url = "https://accounts.spotify.com/api/token";
 
