@@ -58,7 +58,7 @@ export const FavoritesItem = ({ item, setPlayerInfo }) => {
       const res = await getAcUser();
       setAcUser(res);
       Swal.fire({
-        position: "top",
+        position: "center",
         title: "移除喜愛成功！",
         timer: 1000,
         icon: "success",

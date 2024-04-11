@@ -6,15 +6,16 @@ import Play from "../assets/images/Play.svg";
 import clsx from "clsx";
 import { useModal } from "../contexts/ModalContext";
 import { useData } from "../contexts/DataContext";
+import { usePlayerInfo } from "../contexts/PlayerContext";
 import {
   addFavorite,
+  deleteFavorite,
   deleteShowFromCategories,
   getAcCategories,
   getAcUser,
 } from "../api/acApi";
-import { getShows } from "../api/spotifyApi";
 import { useAuth } from "../contexts/AuthContext";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const PodcastModal = ({ showModal }) => {
   const { setShowPodcastModal } = useModal();
@@ -74,7 +75,7 @@ export const PodcastModal = ({ showModal }) => {
     >
       <div className="podcast-modal">
         <div className="header">
-          <div className="imgcontent">
+          <div className="img-content">
             <img src={filterShow[0]?.images[0]?.url} alt="" />
           </div>
           <div className="podcast-info">
@@ -116,38 +117,60 @@ export const PodcastModal = ({ showModal }) => {
 const Podcast = ({ episode }) => {
   const [iframeSrc, setIframeSrc] = useState("");
   const { episodes, setEpisodes, setUserFavorites, userFavorites } = useData();
-
+  const { playerInfo, setPlayerInfo } = usePlayerInfo();
   const { acUser, setAcUser } = useAuth();
 
   useEffect(() => {
     setUserFavorites(acUser.favoriteEpisodeIds);
   }, [acUser]);
 
-  const handleAddFavorite = async (e) => {
-    try {
-      const res = await addFavorite(episode.id);
-      const success = res.success;
-      if (success) {
-        const acUserRes = await getAcUser();
-        setAcUser(acUserRes);
-        Swal.fire({
-          position: "center",
-          title: "加入收藏成功！",
-          timer: 1000,
-          icon: "success",
-          showConfirmButton: false,
-        });
-      } else {
-        Swal.fire({
-          position: "center",
-          title: "已在收藏內！",
-          timer: 1000,
-          icon: "warning",
-          showConfirmButton: false,
-        });
+  const handleToggleFavorite = async (e) => {
+    console.log(e.target.className);
+    if (e.target.className === "unFavorite") {
+      try {
+        const res = await addFavorite(episode.id);
+        const success = res.success;
+        if (success) {
+          const acUserRes = await getAcUser();
+          setAcUser(acUserRes);
+          Swal.fire({
+            position: "center",
+            title: "加入收藏成功！",
+            timer: 1000,
+            icon: "success",
+            showConfirmButton: false,
+          });
+        } else {
+          Swal.fire({
+            position: "center",
+            title: "已在收藏內！",
+            timer: 1000,
+            icon: "warning",
+            showConfirmButton: false,
+          });
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
+    }
+    if (e.target.className === "Favorite") {
+      try {
+        const res = await deleteFavorite(episode.id);
+        const success = res.success;
+        if (success) {
+          const acUserRes = await getAcUser();
+          setAcUser(acUserRes);
+          Swal.fire({
+            position: "center",
+            title: "刪除收藏成功！",
+            timer: 1000,
+            icon: "success",
+            showConfirmButton: false,
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -157,8 +180,8 @@ const Podcast = ({ episode }) => {
 
   const setFavorite = userFavoriteIds.includes(episode.id);
 
-  const handleFavoriteId = (e) => {
-    console.log(e.target);
+  const handleEpisodeId = (e) => {
+    setPlayerInfo(episode);
   };
 
   const countTime = (duration) => {
@@ -178,10 +201,11 @@ const Podcast = ({ episode }) => {
         <section>
           <p className="title">{episode.name}</p>
           <img
+            className={setFavorite ? "Favorite" : "unFavorite"}
             src={setFavorite ? Favorite : unFavorite}
             alt="喜愛"
             id={episode.id}
-            onClick={handleAddFavorite}
+            onClick={handleToggleFavorite}
           />
         </section>
         <p className="info">{episode.description}</p>
@@ -190,7 +214,7 @@ const Podcast = ({ episode }) => {
             src={Play}
             alt="Play"
             id={episode.id}
-            onClick={handleFavoriteId}
+            onClick={handleEpisodeId}
           />
           <p className="date">{episode.release_date}</p>
           <p className="duration">{countTime(episode.duration_ms)}</p>

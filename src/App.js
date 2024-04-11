@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
 import { ModalProvider } from "./contexts/ModalContext.jsx";
 import { DataProvider } from "./contexts/DataContext.jsx";
+import { SpotifyProvider } from "./contexts/PlayerContext.jsx";
 
 // const basename = process.env.PUBLIC_URL;
 function App() {
@@ -15,11 +16,13 @@ function App() {
         <AuthProvider>
           <ModalProvider>
             <DataProvider>
-              <Routes>
-                <Route path="*" element={<LoginPage />} />
-                <Route path="home" element={<HomePage />} />
-                <Route path="pending" element={<PendingPage />} />
-              </Routes>
+              <SpotifyProvider>
+                <Routes>
+                  <Route path="*" element={<LoginPage />} />
+                  <Route path="home" element={<HomePage />} />
+                  <Route path="pending" element={<PendingPage />} />
+                </Routes>
+              </SpotifyProvider>
             </DataProvider>
           </ModalProvider>
         </AuthProvider>

@@ -1,14 +1,7 @@
 import "./LoginPage.scss";
-import { getAcToken } from "../api/acApi";
 import Logo from "../assets/images/Logo.svg";
-import { useState, useEffect } from "react";
 import { Carousel } from "../components/LoginCarousel";
 import { useNavigate } from "react-router-dom";
-import {
-  getSpotifyUserProfile,
-  getSpotifyAccessToken,
-} from "../api/spotifyApi";
-import { useAuth } from "../contexts/AuthContext";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -17,7 +10,6 @@ export const LoginPage = () => {
   const SCOPE = "user-read-private user-read-email";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   // http://localhost:3000/pending;
-  // "https://react-fake-spotify-beta.vercel.app/login"
   // process.env.REACT_APP_REDIRECT_URL;
   // "https://react-fake-spotify-beta.vercel.app/pending";
   const generateRandomString = (length) => {

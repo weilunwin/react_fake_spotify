@@ -3,7 +3,6 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  // border: 1px blue solid;
 }
 
 .collection-wrapper {
@@ -20,6 +19,7 @@
   justify-content: end;
   width: 35%;
   .listener-container {
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;

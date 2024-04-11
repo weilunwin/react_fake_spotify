@@ -1,14 +1,11 @@
 import "./PendingPage.scss";
-import axios from "axios";
 import { useEffect, useRef } from "react";
 import { getAcToken } from "../api/acApi";
 import {
   getSpotifyAccessToken,
-  getSpotifyUserProfile,
 } from "../api/spotifyApi";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { cleanup } from "@testing-library/react";
 
 export const PendingPage = () => {
   const navigate = useNavigate();

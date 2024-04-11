@@ -1,16 +1,17 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-const defaultIfarme = {
-  
-}
-const SpotifyContext = createContext();
+const defaultPlayerContext = {
+  playerInfo: null, //取得episodeId
+};
+const playerInfoContext = createContext(defaultPlayerContext);
+export const usePlayerInfo = () => useContext(playerInfoContext);
 
 export const SpotifyProvider = ({ children }) => {
-  const [spotifyIframe, setSpotifyIframe] = useState(null);
+  const [playerInfo, setPlayerInfo] = useState(null);
 
   return (
-    <SpotifyContext.Provider value={{ spotifyIframe, setSpotifyIframe }}>
+    <playerInfoContext.Provider value={{ playerInfo, setPlayerInfo }}>
       {children}
-    </SpotifyContext.Provider>
+    </playerInfoContext.Provider>
   );
 };

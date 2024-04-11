@@ -8,6 +8,7 @@ export const getSpotifyAccessToken = async () => {
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
   const REDIRECT_URL = "https://react-fake-spotify-beta.vercel.app/pending";
   // "process.env.REACT_APP_REDIRECT_URL";
+  // "https://react-fake-spotify-beta.vercel.app/pending";
   const code = localStorage.getItem("code");
   const url = "https://accounts.spotify.com/api/token";
 
@@ -89,13 +90,12 @@ export const searchShows = async (input) => {
       params: { q: input, type: "show", limit: 20 },
       headers: { Authorization: `Bearer ${spotifyToken}` },
     });
-    console.log("search Shows success");
     return res.data;
   } catch (error) {
     if (error.response.data.error.status === 401) {
       await getRefreshToken();
     } else {
-      console.error("[searchShows is Failled]:", error);
+      console.error("[searchShows is Failed]:", error);
     }
   }
 };
@@ -151,7 +151,12 @@ export const getShowEpisodes = async (showId) => {
     });
     return episodesData;
   } catch (error) {
-    console.error("[getShowEposides Failed]:", error);
+    console.error("[getShowEpisodes Failed]:", error);
+    if (error.response.data.error.status === 401) {
+      await getRefreshToken();
+    } else {
+      console.error("[getSpotifyUserProfile Failed]:", error);
+    }
   }
 };
 
@@ -182,5 +187,10 @@ export const getEpisode = async (episodeIds) => {
     return episodes;
   } catch (error) {
     console.error("[getEpisode Failed]:", error);
+    if (error.response.data.error.status === 401) {
+      await getRefreshToken();
+    } else {
+      console.error("[getSpotifyUserProfile Failed]:", error);
+    }
   }
 };

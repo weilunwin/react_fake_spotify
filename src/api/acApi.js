@@ -36,7 +36,6 @@ export const addFavorite = async (episodeId) => {
   const bodyParam = { episodeId: episodeId };
   try {
     const res = await axios.post(`${BASE_URL}/api/episodes`, bodyParam, config);
-    console.log("add Favorite success", res.data);
     return res.data;
   } catch (error) {
     console.error("[addCollection Failed]:", error);
@@ -49,11 +48,10 @@ export const deleteFavorite = async (episodeId) => {
   const config = { headers: { Authorization: `Bearer ${acToken}` } };
 
   try {
-    const {data} = await axios.delete(
+    const { data } = await axios.delete(
       `${BASE_URL}/api/episodes/${episodeId}`,
       config
     );
-    console.log("delete favorite success");
     return data;
   } catch (error) {
     console.error("[deleteFavorite Failed]:", error);
@@ -84,7 +82,6 @@ export const setAcUserCategories = async (categoriesName) => {
       bodyParam,
       config
     );
-    console.log("set categorie success", data);
     return data;
   } catch (error) {
     console.error("[setAcUserCategories Failed]:", error);
@@ -102,7 +99,6 @@ export const changeAcCategoriesName = async ({ categoryId, categoryName }) => {
       bodyParam,
       config
     );
-    console.log("chang name success", data);
     return data.success;
   } catch (error) {
     console.error("[changeAcCategoriesName Failed]:", error);
@@ -111,14 +107,13 @@ export const changeAcCategoriesName = async ({ categoryId, categoryName }) => {
 
 //刪除類別
 export const deleteAcCategories = async (categoryId) => {
-  const acTokne = localStorage.getItem("acToken");
-  const congif = { headers: { Authorization: `Bearer ${acTokne}` } };
+  const acToken = localStorage.getItem("acToken");
+  const config = { headers: { Authorization: `Bearer ${acToken}` } };
   try {
     const { data } = await axios.delete(
       `${BASE_URL}/api/categories/${categoryId}`,
-      congif
+      config
     );
-    console.log("delete success", data);
     return data;
   } catch (error) {
     console.error("[deleteAcCategories Failed]:", error);
@@ -154,10 +149,8 @@ export const deleteShowFromCategories = async ({ categoryId, showId }) => {
       `${BASE_URL}/api/categories/${categoryId}/shows/${showId}`,
       config
     );
-    console.log("delete show from categories success", data);
     return data;
   } catch (error) {
     console.error("[deleteShowFromCatrgories Failed]", error);
   }
 };
-

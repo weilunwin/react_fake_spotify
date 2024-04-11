@@ -14,8 +14,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 868px;
-  height: 750px;
+  width: 45%;
+  height: 80%;
+  max-width: 868px;
+  max-height: 750px;
   background-color: #ffffff;
   border-radius: 10px;
   z-index: 1;
@@ -80,7 +82,8 @@
     flex-wrap: wrap;
     justify-content: start;
     width: 100%;
-    height: 500px;
+    height: calc(100% - 247px);
+    // height: 500px;
     overflow: scroll;
     box-shadow: inset 0px -30px 36px 0px rgba(0, 0, 0, 0.1);
     .podcast-item {

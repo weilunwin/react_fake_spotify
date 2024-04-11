@@ -8,6 +8,7 @@ import { SearchModal } from "./modal/SearchModal";
 import { useState, useEffect } from "react";
 import { useModal } from "../contexts/ModalContext";
 import { useData } from "../contexts/DataContext";
+import { usePlayerInfo } from "../contexts/PlayerContext";
 import { getShows, getEpisode } from "../api/spotifyApi";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -28,10 +29,11 @@ export const PodcastCollection = () => {
     renderFavorite,
     userFavorites,
   } = useData();
+  const { playerInfo, setPlayerInfo } = usePlayerInfo();
 
   const [userFavoriteEpisodesData, setUserFavoriteEpisodesData] = useState([]);
-  const [playerInfo, setPlayerInfo] = useState(null);
-
+  // const [playerInfo, setPlayerInfo] = useState(null);
+  console.log(playerInfo)
   useEffect(() => {
     const fetchShow = async () => {
       if (targetItem) {
@@ -68,7 +70,6 @@ export const PodcastCollection = () => {
     fetchFavoriteEpisode(favoriteIds);
   }, [renderFavorite, userFavorites]);
 
-
   return (
     <div className="collection">
       <div className="collection-wrapper">
@@ -104,9 +105,9 @@ export const PodcastCollection = () => {
         <div className="listener-container">
           <div className="listener-header">
             <p>正在播放</p>
-            <div className="favorite">
+            {/* <div className="favorite">
               {playerInfo && <img src={Favorite} alt="" />}
-            </div>
+            </div> */}
           </div>
           <div className="listener-content">
             {!playerInfo ? (
