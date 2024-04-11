@@ -56,14 +56,27 @@ export const EditModal = ({ onChangeName, inputValue, setInputValue }) => {
         categoryName,
       });
       if (success) {
-        const datas = await getAcCategories();
-        setCategories(
-          datas.map((data) => ({
-            ...data,
-            isActive: false,
-            isChecked: false,
-          }))
-        );
+        setCategories((prev) => {
+          return prev.map((category) => {
+            return category.id === categoryId
+              ? {
+                  ...category,
+                  name: categoryName,
+                  isActive: false,
+                  isChecked: false,
+                }
+              : category;
+          });
+        });
+        // const datas = await getAcCategories();
+        // console.log("datas", datas)
+        // setCategories(
+        //   datas.map((data) => ({
+        //     ...data,
+        //     isActive: false,
+        //     isChecked: false,
+        //   }))
+        // );
         setInputValue("");
         setShowEditModal(false);
         setChosenEmoji(null);
@@ -116,7 +129,7 @@ export const EditModal = ({ onChangeName, inputValue, setInputValue }) => {
   };
   const handleEmojiSelect = (emoji) => {
     setChosenEmoji(emoji);
-    setOpen(false)
+    setOpen(false);
     setInputValue(emoji.emoji + inputValue);
   };
 

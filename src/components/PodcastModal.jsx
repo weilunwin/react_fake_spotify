@@ -125,7 +125,6 @@ const Podcast = ({ episode }) => {
   }, [acUser]);
 
   const handleToggleFavorite = async (e) => {
-    console.log(e.target.className);
     if (e.target.className === "unFavorite") {
       try {
         const res = await addFavorite(episode.id);

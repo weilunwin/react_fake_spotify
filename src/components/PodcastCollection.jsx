@@ -13,13 +13,6 @@ import { getShows, getEpisode } from "../api/spotifyApi";
 import { useAuth } from "../contexts/AuthContext";
 
 export const PodcastCollection = () => {
-  const { acUser } = useAuth();
-  const {
-    showPodcastModal,
-    setShowPodcastModal,
-    showSearchModal,
-    setShowSearchModal,
-  } = useModal();
   const {
     targetItem,
     setTargetItem,
@@ -30,10 +23,8 @@ export const PodcastCollection = () => {
     userFavorites,
   } = useData();
   const { playerInfo, setPlayerInfo } = usePlayerInfo();
-
   const [userFavoriteEpisodesData, setUserFavoriteEpisodesData] = useState([]);
-  // const [playerInfo, setPlayerInfo] = useState(null);
-  console.log(playerInfo)
+  
   useEffect(() => {
     const fetchShow = async () => {
       if (targetItem) {
@@ -105,9 +96,6 @@ export const PodcastCollection = () => {
         <div className="listener-container">
           <div className="listener-header">
             <p>正在播放</p>
-            {/* <div className="favorite">
-              {playerInfo && <img src={Favorite} alt="" />}
-            </div> */}
           </div>
           <div className="listener-content">
             {!playerInfo ? (

@@ -56,6 +56,9 @@
       width: 180px;
       height: 36px;
       border-top: 1px solid #ebebeb;
+      &:hover > .nav-link {
+        color: #ff7f50;
+      }
       &:first-child {
         border-top: none;
       }
@@ -126,8 +129,5 @@
   background-color: #111111;
   > label p {
     color: #fefefe;
-  }
-  > .hamburger {
-    color: white;
   }
 }

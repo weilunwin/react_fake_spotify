@@ -25,8 +25,8 @@ export const SearchModal = () => {
   const [searchShowsData, setSearchShowsData] = useState([]);
 
   useEffect(() => {
-    const filterItem = categories.filter((categorie) => {
-      return categorie.id === listTargetId;
+    const filterItem = categories.filter((category) => {
+      return category.id === listTargetId;
     });
 
     setTargetItem(...filterItem);
@@ -50,7 +50,7 @@ export const SearchModal = () => {
     setSearchShowsData([]);
   };
 
-  const handleSearchInput = (e) => {
+  const handleSearchInput = async (e) => {
     const inputValue = e.target.value;
     setSearchInput(inputValue);
   };
@@ -60,6 +60,7 @@ export const SearchModal = () => {
     const showData = res.shows.items;
     setSearchShowsData(showData);
   };
+
   const handleTargetId = (e) => {
     const id = e.target.id;
     setShowsTargetId(id);

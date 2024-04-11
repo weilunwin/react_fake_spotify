@@ -1,6 +1,6 @@
 import "./HomePage.scss";
 import logo from "../assets/images/Logo.svg";
-import { ListItem } from "../components/ListItem";
+import { CategoriesItem } from "../components/CategoriesItem.jsx";
 import { EditModal } from "../components/modal/EditModal.jsx";
 import { PodcastCollection } from "../components/PodcastCollection";
 import { useState, useEffect } from "react";
@@ -16,17 +16,6 @@ import {
 import { useData } from "../contexts/DataContext.jsx";
 import { useModal } from "../contexts/ModalContext.jsx";
 import { SearchModal } from "../components/modal/SearchModal.jsx";
-
-const defaultItems = [
-  {
-    id: 999,
-    emoji: "favorite",
-    name: "真已收藏",
-    isChecked: false,
-    isActive: false,
-    isEdit: false,
-  },
-];
 
 export const HomePage = () => {
   const { acUser, setAcUser, spotifyUser, setSpotifyUser } = useAuth();
@@ -95,10 +84,6 @@ export const HomePage = () => {
       ? spotifyUser.images[0].url
       : null;
 
-  // if (acUser === undefined) {
-  //   getAcToken();
-  // }
-
   //顯示早午晚安
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -126,7 +111,7 @@ export const HomePage = () => {
     });
   };
   //focus item
-  const handleActive = async (e) => {
+  const handleActive = (e) => {
     e.stopPropagation();
     const id = e.target.id;
     setListTargetId(id);
@@ -150,7 +135,7 @@ export const HomePage = () => {
     navigate("/login");
   };
   //新增分類
-  const handleAddCategory = async (e) => {
+  const handleAddCategory = (e) => {
     e.stopPropagation();
     setShowEditModal(true);
     setTitle("新增分類");
@@ -160,7 +145,7 @@ export const HomePage = () => {
     }
   };
 
-  const handleInputValue = async (e) => {
+  const handleInputValue = (e) => {
     const value = e.target.value;
     setInputValue(value);
   };
@@ -179,7 +164,7 @@ export const HomePage = () => {
           {categories !== null
             ? categories.map((item) => {
                 return (
-                  <ListItem
+                  <CategoriesItem
                     key={item.id}
                     categories={item}
                     targetId={listTargetId}

@@ -7,7 +7,7 @@ export const getSpotifyAccessToken = async () => {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
   const REDIRECT_URL = "https://react-fake-spotify-beta.vercel.app/pending";
-  // "process.env.REACT_APP_REDIRECT_URL";
+  // process.env.REACT_APP_REDIRECT_URL;
   // "https://react-fake-spotify-beta.vercel.app/pending";
   const code = localStorage.getItem("code");
   const url = "https://accounts.spotify.com/api/token";
@@ -187,10 +187,5 @@ export const getEpisode = async (episodeIds) => {
     return episodes;
   } catch (error) {
     console.error("[getEpisode Failed]:", error);
-    if (error.response.data.error.status === 401) {
-      await getRefreshToken();
-    } else {
-      console.error("[getSpotifyUserProfile Failed]:", error);
-    }
   }
 };

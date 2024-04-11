@@ -1,13 +1,11 @@
-import "./ListItem.scss";
+import "./CategoriesItem.scss";
 import Swal from "sweetalert2";
-import { EditModal } from "./modal/EditModal";
-import { useState, useContext, Children, useEffect } from "react";
 import clsx from "clsx";
 import { useModal } from "../contexts/ModalContext";
 import { deleteAcCategories, getAcCategories, getAcUser } from "../api/acApi";
 import { useData } from "../contexts/DataContext";
 
-export const ListItem = ({ categories, onActive, openEditBox }) => {
+export const CategoriesItem = ({ categories, onActive, openEditBox }) => {
   const {
     showEditModal,
     setShowEditModal,
@@ -29,14 +27,15 @@ export const ListItem = ({ categories, onActive, openEditBox }) => {
     const id = categories.id;
     const { success } = await deleteAcCategories(id);
     if (success) {
-      const datas = await getAcCategories();
-      setCategories(
-        datas.map((data) => ({
-          ...data,
-          isActive: false,
-          isChecked: false,
-        }))
-      );
+      setCategories((prev) => prev.filter((category) => category.id !== id));
+      // const datas = await getAcCategories();
+      // setCategories(
+      //   datas.map((data) => ({
+      //     ...data,
+      //     isActive: false,
+      //     isChecked: false,
+      //   }))
+      // );
       Swal.fire({
         position: "center",
         title: "刪除成功！",
@@ -79,29 +78,34 @@ export const ListItem = ({ categories, onActive, openEditBox }) => {
         {/* 編輯框 */}
         <nav className={clsx("nav", { ischecked: categories.isChecked })}>
           <ul className="nav-list">
-            <li className="nav-item">
+            <li className="nav-item" id={listTargetId} onClick={openEditName}>
               <p
-                className={clsx("nav-link", { isEdit: categories.isEdit })}
+                className="nav-link"
+                // className={clsx("nav-link", { isEdit: categories.isEdit })}
                 id={listTargetId}
-                onClick={openEditName}
+                // onClick={openEditName}
               >
                 編輯名稱
               </p>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" id={listTargetId} onClick={deleteCategory}>
               <p
                 className="nav-link"
                 id={listTargetId}
-                onClick={deleteCategory}
+                // onClick={deleteCategory}
               >
                 刪除分類
               </p>
             </li>
-            <li className="nav-item">
+            <li
+              className="nav-item"
+              id={listTargetId}
+              onClick={openSearchShows}
+            >
               <p
                 className="nav-link"
                 id={listTargetId}
-                onClick={openSearchShows}
+                // onClick={openSearchShows}
               >
                 新增 Podcast
               </p>
