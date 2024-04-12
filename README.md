@@ -11,7 +11,7 @@
   密碼:TestSpotify122333
   (#使用時請先到 spotify 網頁把自己原先的帳號登出再使用測試帳號)
 
-  - GitHub: https://github.com/weilunwin/react_fake_spotify/tree/main
+- GitHub: https://github.com/weilunwin/react_fake_spotify/tree/main
 
 ## 安裝與下載
 
