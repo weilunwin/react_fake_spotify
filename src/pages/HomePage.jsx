@@ -1,5 +1,6 @@
 import "./HomePage.scss";
 import logo from "../assets/images/Logo.svg";
+import fakeUserImg from "../assets/images/FakeUserImg.png";
 import { CategoriesItem } from "../components/CategoriesItem.jsx";
 import { EditModal } from "../components/modal/EditModal.jsx";
 import { PodcastCollection } from "../components/PodcastCollection";
@@ -18,7 +19,8 @@ import { useModal } from "../contexts/ModalContext.jsx";
 import { SearchModal } from "../components/modal/SearchModal.jsx";
 
 export const HomePage = () => {
-  const { acUser, setAcUser, spotifyUser, setSpotifyUser } = useAuth();
+  const { acUser, setAcUser, spotifyUser, setSpotifyUser, isAuthenticated } =
+    useAuth();
   const {
     categories,
     setCategories,
@@ -78,6 +80,12 @@ export const HomePage = () => {
       });
     }
   }, [acUser, renderFavorite]);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [navigate, isAuthenticated]);
 
   const spotifyImage =
     spotifyUser && spotifyUser.images && spotifyUser.images.length > 0
@@ -187,7 +195,11 @@ export const HomePage = () => {
         <div className="header">
           <p>{greeting}</p>
           <div className="user-container">
-            <img src={spotifyImage} alt="user-img" className="user-image" />
+            <img
+              src={!spotifyImage && fakeUserImg}
+              alt="user-img"
+              className="user-image"
+            />
             <p className="user-name">{spotifyUser.name}</p>
             <input
               type="checkbox"

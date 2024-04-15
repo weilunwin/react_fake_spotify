@@ -1,20 +1,23 @@
-import { createContext, useContext, useState } from "react";
-import { getAcToken } from "../api/acApi";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { getSpotifyUserProfile } from "../api/spotifyApi";
 
 const defaultAuthContext = {
   currentUser: null, //當前使用者
   login: null,
   spotifyUser: null,
   acUser: null,
+  isAuthenticated: false,
 };
 const AuthContext = createContext(defaultAuthContext);
 
 export const useAuth = () => useContext(AuthContext);
+
 export const AuthProvider = ({ children }) => {
   const [acUser, setAcUser] = useState([]);
   const [spotifyUser, setSpotifyUser] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { pathname } = useLocation();
+
 
   return (
     <AuthContext.Provider
@@ -23,18 +26,8 @@ export const AuthProvider = ({ children }) => {
         setAcUser,
         spotifyUser,
         setSpotifyUser,
-        // getUsers: async () => {
-        //   const { acToken, favoriteEpisodeIds, id } = await getAcToken(
-        //   );
-        //   const spotifyUser = await getSpotifyUserProfile();
-        //   if (acToken) {
-        //     setAcUser({ favoriteEpisodeIds, id });
-        //     setSpotifyUser(spotifyUser);
-        //     return;
-        //   } else {
-        //     setSpotifyUser([]);
-        //   }
-        // },
+        isAuthenticated,
+        setIsAuthenticated,
       }}
     >
       {children}

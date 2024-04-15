@@ -24,7 +24,8 @@ export const PodcastCollection = () => {
   } = useData();
   const { playerInfo, setPlayerInfo } = usePlayerInfo();
   const [userFavoriteEpisodesData, setUserFavoriteEpisodesData] = useState([]);
-  
+
+  //categories的savedShows資料
   useEffect(() => {
     const fetchShow = async () => {
       if (targetItem) {
@@ -46,6 +47,7 @@ export const PodcastCollection = () => {
     }
   }, [targetItem]);
 
+  //favorites的資料
   useEffect(() => {
     const favoriteIds = userFavorites?.map((item) => {
       return item.id;
@@ -60,6 +62,7 @@ export const PodcastCollection = () => {
     };
     fetchFavoriteEpisode(favoriteIds);
   }, [renderFavorite, userFavorites]);
+
 
   return (
     <div className="collection">
